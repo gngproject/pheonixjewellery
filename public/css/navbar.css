@@ -1,0 +1,192 @@
+body{
+    padding: 0px;
+    margin: 0px;
+
+	background-color: #eaded2;
+    background: url(../Assets/Image/Background/background.png);
+	background-repeat: repeat-y;
+    background-size:100%;
+    background-position: bottom;
+    background-attachment: fixed;
+}
+
+*{
+    padding: 0px;
+    margin: 0px;
+
+}
+#navbar{
+    background-color: black;
+    color: white;
+
+}
+
+#mostTop{
+    background-color: #202020;
+}
+#navbar #mostTop>ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    margin-right: 40px;
+
+
+}
+
+#mostTop li a{
+    text-decoration: none;
+    color: white;
+    padding-left: 10PX;
+    font-size: 30px;
+
+}
+
+#mostTop li a img{
+    width:50px;
+    height: auto;
+}
+
+#logo img{
+    width: 40%;
+    height: auto;
+}
+
+#logo{
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 3%;
+    padding-top: 3%;
+}
+#searching {
+    width: 100%;
+    justify-content: center;
+    padding-bottom: 10px;
+}
+
+#search {
+    background-color: azure;
+    width: 45%;
+
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
+    border-radius: 25px;
+}
+
+#search input, #search button{
+    background-color: transparent;
+    border: none;
+
+}
+#search input:active, #search button:active{
+   border: none;
+
+}
+#search input, #search img{
+    height: 40px;
+    width: auto;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+#search button{
+    float: right;
+    margin-right: 3%;
+}
+
+
+#search button:focus, #search input:focus{
+   outline: none;
+}
+#search input{
+    width: 82%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 30px;
+    color: black;
+    float:unset;
+
+}
+
+
+
+#menu{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-around;
+    margin-left: 7%;
+    margin-right: 7%;
+    font-size: 25px;
+}
+
+#menu div a {
+    color: white;
+    text-decoration: none;
+
+}
+#menu div a:hover{
+    cursor: pointer;
+}
+
+#menu .dropDownProduct{
+    padding-top: 30px;
+    border-radius: 5px;
+    position: absolute;
+    background-color:black;
+    z-index: 1;
+    text-align: center;
+    min-width: 270px;
+    display: none;
+
+}
+
+#menu .dropDownProduct>.child{
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#menu .dropDownProduct>.child>a:focus{
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-weight: bold;
+    font-size: 25px;
+    text-decoration: underline;
+}
+
+.child2{
+    display: none;
+    position: absolute;
+    left: 100%;
+    border-left: 2px solid white;
+    min-width: 180px;
+    background-color: black;
+
+}
+
+.productChild{
+    top: 0px;
+}
+.bundleChild{
+    top: 60px;
+}
+
+.customizeChild{
+    top: 90px;
+}
+
+.specialProductChild{
+    top: 120px;
+
+}
+.active{
+    display: block;
+}
+

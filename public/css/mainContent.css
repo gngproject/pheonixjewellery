@@ -1,0 +1,157 @@
+.title img{
+    width:auto;
+    height: 200px;
+}
+
+.title {
+ justify-content: center;
+ text-align: center;
+}
+
+#fotoBarang{
+    justify-content: center;
+}
+#product #fotoBarang{
+    display: flex;
+}
+
+#fotoBarang a{
+    text-align: center;
+    justify-content: center;
+}
+
+#product #fotoBarang img{
+    width: 90%;
+}
+
+
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+#container {
+    width: 100%;
+    height: auto;
+}
+
+#container #ImageSlider {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+#ImageSlider #viewPort {
+    width: 100%;
+    height: auto;
+}
+
+#viewPort #slider {
+    display: flex;
+    position: relative;
+
+}
+
+#viewPort {
+    overflow: hidden;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+}
+
+#left,
+#right {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    background-color: black;
+    border: none;
+    color: wheat;
+
+
+    opacity: 0.7;
+}
+
+#left:active,
+#right:active {
+    opacity: 1;
+}
+
+#slider .slides {
+
+   width: 100%;
+   padding: 6%;
+
+}
+ .slides .box{
+    width: 300px;
+    height: 500px;
+    border: 1px solid transparent;
+    background: url(../Assets/Icon/frame.png);
+    background-size: 100% 100%;
+
+}
+.innerTop{
+    margin-top: 25%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 0%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.wishlistButton .wishlist{
+    background-color: transparent;
+    color:red;
+    margin-top: 10px;
+}
+
+.fotoProduct{
+    text-align: center;
+}
+.fotoProduct img{
+    width: 180px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.keterangan{
+    justify-content: center;
+    text-align: center;
+    font-size: 14px;
+}
+.keterangan div{
+    margin-top: 4px;
+}
+
+.keterangan .namaProduct{
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+@keyframes products {
+    from {
+        box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+    }
+
+    to {
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.6);
+    }
+}
+
+
+
+
+
+
+
+
