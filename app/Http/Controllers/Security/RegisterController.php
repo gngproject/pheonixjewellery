@@ -19,18 +19,32 @@ class RegisterController extends Controller
     public function registeruser(Request $request)
     {
         // dd($request->all());
-       $user = Sentinel::registerAndActivate($request->all());
-        // $user = User::create([
-        //         'name' => $request->name,
-        //         'email' => $request->email,
-        //         'password' => Hash::make($request->password),
-        //         'alamat'=> $request->alamat,
-        //         'telp'=> $request->telp,
-        //         'gender' => $request->gender
-        //     ]);
-       
-       
-        echo 'User registered';
-        return redirect('/login');
+        $credentials= [
+            'email' => $request->email,
+            'password' => $request->password,
+        ];
+        $user = Sentinel::registerAndActivate($credentials);
+        
+        $user_completed_data = User::where('email','=', $user->email)
+                ->update(
+                    [
+                        'name' => $request->name,
+                        'gender' => $request->gender,
+                        'alamat' => $request->alamat,
+                        'telp'=>$request->telp
+                    ]);
+        
+
+    //     $user = User::create([
+    //             'name' => $request->name,
+               
+    //             'alamat'=> $request->alamat,
+    //             'telp'=> $request->telp,
+    //             'gender' => $request->gender
+    //         ]);
+    //    echo $user;
+        // dd ($user_completed_data->email);
+        // echo 'User registered';
+     return redirect('/login');
     }
 }
