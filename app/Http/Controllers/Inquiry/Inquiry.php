@@ -33,16 +33,15 @@ class Inquiry extends Controller
         $generatedSignature = hash('sha256', $uppercase);
 
         // validate the password
-        if ($espaypassword == $passwordServer) {
+        // if ($espaypassword == $passwordServer) {
 
         // Validate Signature
-            if ($generatedSignature == $signaturePostman) {
-
+            // if ($generatedSignature == $signaturePostman) {
+                    
                     // Validate the given order id from espay inquiry request
                     // from your db or persistent
-                if(Sentinel::check()){
-                    $transaction = Orders::where('status','=','new')->get();
-                }
+                    
+                    $transaction = Orders::where('status','new')->get();
 
                 if (!$transaction) {
                     echo '1;Order Id Does Not Exist;;;;;'; // if order id not exist show plain reponse
@@ -56,23 +55,25 @@ class Inquiry extends Controller
                         $customer_first_name    = $transaction->customer_first_name;
                         $customer_last_name     = $transaction->customer_last_name;
                     };
+                    
                     // show response
                     // see TSD for more detail
                     echo '0;Success;' . $order_id . ';' . $grand_total . ';' . $currency . '; Pembayaran Order ' . $order_id . ' oleh ' . $customer_first_name . ' ' . $customer_last_name . ';' . date('Y/m/d H:i:s') . '';
                 }
-            } else {
-                return '1;Invalid Signature Key;;;;;';
-            }
-        } else {
+            // } else {
+                // return '1;Invalid Signature Key;;;;;';
+            // }
+        // } else {
             // if password not true
-            return '1;Merchant Failed to Identified;;;;;';
-        }
+            // return '1;Merchant Failed to Identified;;;;;';
+        // }
     }
 
     public function paymentinquiry()
     {
         if(Sentinel::check()){
-            $transaction = Orders::where('status','=','new')->get();
+            $transaction = Orders::where('status','new')->get();;
+            
         }
         return view('Payment.paymenttransaction',compact('transaction'));
         // dd($transaction);

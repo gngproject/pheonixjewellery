@@ -17,7 +17,7 @@
                         @endforeach
                     @endif
 
-                    <form class="mt-4" action="{{ url('/Special-Product/Save') }}" method="post" enctype="multipart/form-data">
+                    <form class="mt-4" action="{{ url('/Customize-Product/Save') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group row">
                             <div class="col-md-12">

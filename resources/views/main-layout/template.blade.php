@@ -139,7 +139,7 @@
           </div>
           <div class="col-md-4 mb-lg-0 text-center">
             <a href="https://www.instagram.com/phoenixjewelleryid/" target="_blank">
-              <img src="{{ asset('Assets/Icon/IG.png') }}" alt="">
+              <img src="{{ asset('assets/Icon/IG.png') }}" alt="">
             </a>
           </div>
           <div class="col-md-4 mb-lg-0 text-center">

@@ -48,7 +48,7 @@ Auth::routes();
     Route::get('/wishlist-delete/{id_item}','Wishlist\WishlistController@delete');
 
     Route::get('/register','Security\RegisterController@register');
-    Route::post('/register','Security\RegisterController@registeruser');
+    Route::post('/register-user','Security\RegisterController@registeruser')->name('register.user');
 
     Route::get('/login','Security\LoginController@login')->name('login');
     Route::post('/login','Security\LoginController@postLogin');
@@ -82,10 +82,8 @@ Auth::routes();
     Route::post('/Checkout-Payment','Checkout\CheckoutController@store')->name('checkout.payment');
 
     //ESPAY PAYMENT
-    // Route::post('/Payment-Espay','Inquiry\Inquiry@inquiryespay')->name('kelar');
     Route::get('/Payment-Inquiry','Inquiry\Inquiry@paymentinquiry')->name('inq.espay');
     Route::get('/Payment-Espay','Inquiry\Inquiry@inquiryespay');
-    // Route::post('/Payment-Notification','Payment\PaymentController@paymentnotification')->name('payment.notification');
 
 
 Route::get('/Faq','HomeController@faq');

@@ -328,15 +328,15 @@
 
             $('#form_submit_checkout').html('Sending...');
             $.ajax({
-                url: "/Checkout-Payment",
-                type: "POST",
+                url: '/Checkout-Payment',
+                type: 'POST',
                 data: $('#payment_form').serialize(),
                 success: function( response ){
                     $('#form_submit').html('Submit');
                     $('#res_message').show();
                     $('#res_message').html(response.msg);
                     $('#msg_div').removeClass('d-none');
-                    location.assign("http://localhost:8000/Payment-Inquiry");
+                    location.assign("https://phoenixjewellery.id/Payment-Inquiry");
                 }
             });
         }

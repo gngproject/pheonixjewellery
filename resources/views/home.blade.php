@@ -33,15 +33,9 @@
     <div class="carousel-inner">
         @foreach ($item_carousel as $key => $item)
       <div class="carousel-item {{ $key == 0 ? ' active' : '' }}">
-        <img class="d-block w-100" style="margin:0;" src="https://adminphoenixjewellery.com/{{ $item->advertise_img}}" alt="First slide">
+        <img class="d-block w-100" style="margin:0; width:720px; height:500px" src="https://adminphoenixjewellery.com/{{ $item->advertise_img}}" alt="First slide">
       </div>
       @endforeach
-      <!--<div class="carousel-item">-->
-      <!--  <img class="d-block w-100" src="{{ url('/assets/ContentSlider/slider2.png')}}" alt="Second slide">-->
-      <!--</div>-->
-      <!--<div class="carousel-item">-->
-      <!--  <img class="d-block w-100" src="{{ url('/assets/ContentSlider/slider3.png')}}" alt="Third slide">-->
-      <!--</div>-->
     </div>
     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -82,7 +76,7 @@
                 <div class="slides">
                     <div class="slides box">
                         <div class="innerTop">
-                            <div style="width: 100px; height:auto;">
+                            <div style="width: 720px; height:auto;">
                                 <img src="{{ asset('assets/logo/LogoBlackText.png') }}" alt="">
                             </div>
                         </div>

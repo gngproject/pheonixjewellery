@@ -45,8 +45,8 @@ class CheckoutController extends Controller
     public function checkout()
     {
         $kd="";
-        $query = DB::table('transaction_detail')
-        ->select(DB::raw('MAX(RIGHT(TransactionID,4)) as kd_max'))
+        $query = DB::table('orders')
+        ->select(DB::raw('MAX(RIGHT(code,4)) as kd_max'))
         ->whereDate('created_at',Carbon::today());
         if ($query->count()>0) {
             foreach ($query->get() as $key ) {
@@ -130,13 +130,14 @@ class CheckoutController extends Controller
 
 
         ]);
-        dd($data);
-        // $arr = array('msg' => 'Please check your form checkout', 'status' => false);
-        // if($data){
-        //     $arr = array('msg' => 'Tunggu beberapa saat untuk proses selanjutnya.', 'status' => true);
-        // }
-        // return Response()->json($arr);
-        // return redirect()->route('inq.espay')->with('success',"Tunggu beberapa saat untuk proses selanjutnya.");
+        // dd($data);
+       
+        $arr = array('msg' => 'Please check your form checkout', 'status' => false);
+        if($data){
+            $arr = array('msg' => 'Tunggu beberapa saat untuk proses selanjutnya.', 'status' => true);
+        }
+        return Response()->json($arr);
+        return redirect()->route('inq.espay')->with('success',"Tunggu beberapa saat untuk proses selanjutnya.");
 
     }
 

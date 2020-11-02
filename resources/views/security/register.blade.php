@@ -8,7 +8,7 @@
             <span class="login100-form-title p-b-49">
                 Register
             </span>
-            <form id="register" class="login100-form validate-form" action="{{ url('/register') }}" method="post">
+            <form id="register" class="login100-form validate-form" action="{{ url('/register-user') }}" method="post">
                 @csrf
                 <div class="wrap-input100 validate-input m-b-23" data-validate = "Name is required">
                     <span class="label-input100">Full Name <span class="text-danger">*</span></span>

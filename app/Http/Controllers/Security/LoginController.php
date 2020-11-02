@@ -58,7 +58,8 @@ class LoginController extends Controller
                 );
                 // return response()->json($returnData, 500);
                 return redirect()->back()->with(['error'=>"You are banned for $delay seconds."]);
-            } catch(NotActivatedException $e){
+            } 
+            catch(NotActivatedException $e){
                 $returnData = array(
                     'status'    => 'error',
                     'message'   => 'please review',
