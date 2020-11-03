@@ -7,32 +7,55 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use App\User;
+use Validator;
 
 
 class RegisterController extends Controller
 {
     public function register()
     {
-        return view('security.register');
+        return view('security.register',['error' => false]);
     }
 
     public function registeruser(Request $request)
     {
         // dd($request->all());
-        $credentials= [
-            'email' => $request->email,
-            'password' => $request->password,
+
+        $errorMessage = [
+            'email.unique'    => 'Please provide email id',
         ];
-        $user = Sentinel::registerAndActivate($credentials);
+
+        $validator = Validator::make($request->all(),[
+            'email' => 'required|email|unique:users,email'
+        ],$errorMessage);
+
         
-        $user_completed_data = User::where('email','=', $user->email)
-                ->update(
-                    [
-                        'name' => $request->name,
-                        'gender' => $request->gender,
-                        'alamat' => $request->alamat,
-                        'telp'=>$request->telp
-                    ]);
+
+         if( $validator->fails()){
+             return view('security.register',['error' => true]);
+         }
+
+         else{
+            $credentials= [
+                'email' => $request->email,
+                'password' => $request->password,
+            ];
+    
+            
+            $user = Sentinel::registerAndActivate($credentials); 
+            $user_completed_data = User::where('email','=', $user->email)
+                    ->update(
+                        [
+                            'name' => $request->name,
+                            'gender' => $request->gender,
+                            'alamat' => $request->alamat,
+                            'telp'=>$request->telp
+                        ]);
+            return redirect('/login');
+             
+         }
+
+       
         
 
     //     $user = User::create([
@@ -45,6 +68,6 @@ class RegisterController extends Controller
     //    echo $user;
         // dd ($user_completed_data->email);
         // echo 'User registered';
-     return redirect('/login');
+     
     }
 }
