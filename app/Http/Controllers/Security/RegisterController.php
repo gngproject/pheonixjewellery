@@ -14,7 +14,7 @@ class RegisterController extends Controller
 {
     public function register()
     {
-        return view('security.register',['error' => false]);
+        return view('security.register');
     }
 
     public function registeruser(Request $request)

@@ -3,11 +3,15 @@
 @section('content')
 
 <div class="limiter">
-    @if ($error)
-       <script>
-           alert("Email Telah terdaftar silahkan coba email lain")
-       </script>
-    @endif
+    
+    @isset($error)
+        @if ($error)
+            <script>
+                alert("Email Telah terdaftar silahkan coba email lain")
+            </script>
+        @endif
+    @endisset
+   
     <div class="container-login100">
         <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
             <span class="login100-form-title p-b-49">
