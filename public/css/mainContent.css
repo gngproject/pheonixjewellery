@@ -137,6 +137,23 @@
     font-weight: bold;
 }
 
+#howToUseWrapper{
+    padding: 0;
+    margin: 0;
+   
+    display: flex;
+    justify-content: center;
+}
+
+#howToUseWrapper a{
+    display: flex;
+    
+}
+#howToUseWrapper img{
+    margin: auto;
+    width: 70%;
+    height: auto;
+}
 
 @keyframes products {
     from {
@@ -149,5 +166,11 @@
 }
 
 @media screen and (max-width:800px){
-
+    #howToUseWrapper img{
+        padding: 5vw 0;
+        margin: auto;
+        width: 90%;
+        height: auto;
+    }
+    
 }

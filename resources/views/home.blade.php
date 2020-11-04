@@ -150,7 +150,7 @@
     </div>
 </div>
 
-<div class="mx-auto title row justify-content-center mb-5">
+<div id="howToUseWrapper">
     <a href="{{ url('/How-To-Use') }}">
         <img src="assets/Icon/Buton-tutor.png" class="responsive"/>
     </a>
