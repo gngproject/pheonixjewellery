@@ -111,7 +111,7 @@
                   <form action="{{ url('/logout') }}" method="POST" id="logout-form">
                     @csrf
                     <a href="#" onclick="document.getElementById('logout-form').submit()" data-toggle="tooltip" data-placement="top" title="LOGOUT">
-                      <span style="font-size:25px;">LOGOUT</span>
+                      <span style="font-size:25px;">Logout</span>
                     </a>
                   </form>
                 </li>

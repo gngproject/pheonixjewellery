@@ -43,11 +43,11 @@ class ProfileController extends Controller
         }
 
         if($request->hasFile("photo")){
-            if($user->photo!=null){
-                $willdelete = str_replace("storage","public",$user->photo);
-                Storage::delete($willdelete);
-                //ganti foto yang lama dengan yang baru yang lama di destroy
-            }
+            // if($user->photo!=null){
+            //     $willdelete = str_replace("storage","public",$user->photo);
+            //     Storage::delete($willdelete);
+            //     //ganti foto yang lama dengan yang baru yang lama di destroy
+            // }
 
             $temp_photo = strval( str_replace("public","storage", $request->file('photo')->store("public/Photo")));
             //Ganti directory dari public ke storage biar bisa kebaca di viewnya.
