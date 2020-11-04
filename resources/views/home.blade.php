@@ -18,7 +18,10 @@
     display: block;
     height: 100%;
 }
+
 </style>
+
+
 
 @section('content')
 
@@ -70,14 +73,14 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 ">
             <div id="slider" class="nonloop-block-3 owl-carousel">
                 @foreach ($item_slider as $item)
                 <div class="slides">
-                    <div class="slides box">
-                        <div class="innerTop">
-                            <div style="width: 720px; height:auto;">
-                                <img src="{{ asset('assets/logo/LogoBlackText.png') }}" alt="">
+                    <div class="box">
+                        <div class="innerTop" >
+                            <div >
+                                <img  src="{{ asset('assets/logo/LogoBlackText.png') }}" alt="">
                             </div>
                         </div>
                         <br/>

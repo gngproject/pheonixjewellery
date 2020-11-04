@@ -30,10 +30,14 @@
     margin: 0px;
 }
 
-#container {
-    width: 100%;
-    height: auto;
+
+.sliderContainer {
+    
 }
+.sliderContainer .container{
+    
+}
+
 
 #container #ImageSlider {
     display: flex;
@@ -47,26 +51,26 @@
     height: auto;
 }
 
-#viewPort #slider {
+ #slider {
     display: flex;
     position: relative;
-
+    
 }
 
-#viewPort {
+/* #viewPort {
     overflow: hidden;
     margin-left: 0.5%;
     margin-right: 0.5%;
-}
+} */
 
 #left,
 #right {
     width: 40px;
     height: 40px;
     border-radius: 100%;
-    background-color: black;
+   
     border: none;
-    color: wheat;
+    
 
 
     opacity: 0.7;
@@ -81,6 +85,9 @@
 
    width: 100%;
    padding: 6%;
+   
+   display: flex;
+   justify-content: center;
 
 }
 .slides .box{
@@ -90,15 +97,15 @@
     background: url(/assets/Icon/frame.png);
     background-size: 100% 100%;
 
+
 }
 
 .innerTop{
     margin-top: 25%;
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-bottom: 0%;
-    display: flex;
-    justify-content: space-around;
+    margin-left: 20%;
+    margin-right: 20%;
+
+   
 }
 
 .wishlistButton .wishlist{
@@ -139,4 +146,8 @@
     to {
         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.6);
     }
+}
+
+@media screen and (max-width:800px){
+
 }
