@@ -41,20 +41,21 @@ class Inquiry extends Controller
                     // Validate the given order id from espay inquiry request
                     // from your db or persistent
                     
-                    $transaction = Orders::where('status','new')->get();
-
+                    // $transaction = Orders::where('status','new')->get();
+                    $transaction = Orders::orderBy('id','DESC')->first();
+    
                 if (!$transaction) {
                     echo '1;Order Id Does Not Exist;;;;;'; // if order id not exist show plain reponse
                 } else {
                     // if order id truly exist get order detail from database
                     // and give the response, format: error_code;error_message;order_id;amount;ccy;description;trx_date
-                    foreach($transaction as $transaction){
+                    // foreach($transaction as $transaction){
                         $order_id               = $transaction->code;
                         $grand_total            = $transaction->grand_total;
                         $currency               = "Rp";
                         $customer_first_name    = $transaction->customer_first_name;
                         $customer_last_name     = $transaction->customer_last_name;
-                    };
+                    // };
                     
                     // show response
                     // see TSD for more detail
@@ -72,10 +73,11 @@ class Inquiry extends Controller
     public function paymentinquiry()
     {
         if(Sentinel::check()){
-            $transaction = Orders::where('status','new')->get();;
-            
+            // $transaction = Orders::where('status','new')->get();
+            $transaction = Orders::orderBy('id','DESC')->first();
         }
-        return view('Payment.paymenttransaction',compact('transaction'));
+        // return view('Payment.paymenttransaction',compact('transaction
+        return view('Payment.paymenttransaction',['transaction' => $transaction]);
         // dd($transaction);
     }
 
