@@ -52,38 +52,46 @@ Auth::routes();
 
     Route::get('/login','Security\LoginController@login')->name('login');
     Route::post('/login','Security\LoginController@postLogin');
-    Route::post('/logout','Security\LoginController@logout');
+    
+    
     Route::get('/forgot_password','Security\LoginController@forgot');
     Route::post('/forgot_password','Security\LoginController@forgotpassword');
     Route::get('/reset-password/{email}/{code}','Security\LoginController@reset');
     Route::post('/reset-password/{email}/{code}','Security\LoginController@reset_password');
 
-    Route::get('/Profile-User','Profile\ProfileController@profileuser');
-    Route::get('/Profile-Update/{id}','Profile\ProfileController@profileupdate')->name('profile.update');
-    Route::post('/Profile-Update/Data/{id}','Profile\ProfileController@updatedata')->name('profile.updatedata');
 
-    Route::get('/Cart','Cart\CartController@cartview')->name('cart.view');
-    Route::post('/Add-to-Cart','Cart\CartController@addcart')->name('cart.add');
-    Route::post('/Voucher-Remove','Cart\CartController@removevoucher')->name('voucher.remove');
-    Route::post('/Cart-Remove', 'Cart\CartController@remove')->name('cart.remove');
-    // Route::get('/Cart-Voucher/Apply', 'Cart\CartController@applyvoucher')->name('cart.voucher');
-    Route::get('/Cart-Voucher/Apply', 'Cart\CartController@applyvoucher')->name('cart.voucher');
-    Route::post('/Cart-Update','Cart\CartController@updateqtycart')->name('cart.update');
-    // Route::post('/Cart/Minus','Cart\CartController@minusqtycart')->name('cart.minus');
+    Route::group(['middleware' => 'sessionControl'], function () {
+       
+        
+        Route::post('/logout','Security\LoginController@logout');
+        Route::get('/Profile-User','Profile\ProfileController@profileuser');
+        Route::get('/Profile-Update/{id}','Profile\ProfileController@profileupdate')->name('profile.update');
+        Route::post('/Profile-Update/Data/{id}','Profile\ProfileController@updatedata')->name('profile.updatedata');
+
+        Route::get('/Cart','Cart\CartController@cartview')->name('cart.view');
+        Route::post('/Add-to-Cart','Cart\CartController@addcart')->name('cart.add');
+        Route::post('/Voucher-Remove','Cart\CartController@removevoucher')->name('voucher.remove');
+        Route::post('/Cart-Remove', 'Cart\CartController@remove')->name('cart.remove');
+        // Route::get('/Cart-Voucher/Apply', 'Cart\CartController@applyvoucher')->name('cart.voucher');
+        Route::get('/Cart-Voucher/Apply', 'Cart\CartController@applyvoucher')->name('cart.voucher');
+        Route::post('/Cart-Update','Cart\CartController@updateqtycart')->name('cart.update');
+        // Route::post('/Cart/Minus','Cart\CartController@minusqtycart')->name('cart.minus');
 
 
-    Route::get('/Checkout','Checkout\CheckoutController@checkoutview')->name('checkout.view');
-    Route::get('/Order-History','Checkout\CheckoutController@orderhistory')->name('order.history');
-    Route::get('/Cart-Checkout', 'Checkout\CheckoutController@checkout')->name('cart.checkout');
+        Route::get('/Checkout','Checkout\CheckoutController@checkoutview')->name('checkout.view');
+        Route::get('/Order-History','Checkout\CheckoutController@orderhistory')->name('order.history');
+        Route::get('/Cart-Checkout', 'Checkout\CheckoutController@checkout')->name('cart.checkout');
 
-    // Route::get('/Payment-Transaction/{id}','Checkout\CheckoutController@espaypayment')->name('payment');
-    Route::get('/Payment-Transaction/Done','Checkout\CheckoutController@paymentdone')->name('payment.done');
+        // Route::get('/Payment-Transaction/{id}','Checkout\CheckoutController@espaypayment')->name('payment');
+        Route::get('/Payment-Transaction/Done','Checkout\CheckoutController@paymentdone')->name('payment.done');
 
-    Route::post('/Checkout-Payment','Checkout\CheckoutController@store')->name('checkout.payment');
+        Route::post('/Checkout-Payment','Checkout\CheckoutController@store')->name('checkout.payment');
 
-    //ESPAY PAYMENT
-    Route::get('/Payment-Inquiry','Inquiry\Inquiry@paymentinquiry')->name('inq.espay');
-    Route::get('/Payment-Espay','Inquiry\Inquiry@inquiryespay');
+        //ESPAY PAYMENT
+        Route::get('/Payment-Inquiry','Inquiry\Inquiry@paymentinquiry')->name('inq.espay');
+        Route::get('/Payment-Espay','Inquiry\Inquiry@inquiryespay');
+    });
+    
 
 
 Route::get('/Faq','HomeController@faq');

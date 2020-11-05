@@ -25,6 +25,9 @@ class LoginController extends Controller
     public function postLogin(Request $request)
     {
         // Sentinel::disableCheckpoints();
+
+        
+
         $errorMsgs = [
             'email.required'    => 'Please provide email id',
             'email.email'       => 'the email must be a valid email',
@@ -36,6 +39,11 @@ class LoginController extends Controller
             'password'  => 'required'
         ], $errorMsgs);
 
+        $getData = User::select("email")
+            ->where('email','=', $request->get("email"))
+            ->first();
+        
+
         if($validator->fails()){
             $returnData = array(
                 'status'    => 'error',
@@ -45,10 +53,13 @@ class LoginController extends Controller
             // return response()->json($returnData, 500);
             return redirect()->back()->with(['error'=>$validator->errors()->all()]);
         }
+        $request->session()->put('sessionKey',$getData->email);
 
+        
         if($request->remember == 'on'){
             try {
                 $user   = Sentinel::authenticateAndRemember($request->all());
+                
             } catch (ThrottlingException $e) {
                 $delay      = $e->getDelay();
                 $returnData = array(
@@ -103,9 +114,10 @@ class LoginController extends Controller
         }
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
         Sentinel::logout();
+        $request->session()->forget('sessionKey');
         return redirect('/');
     }
 
