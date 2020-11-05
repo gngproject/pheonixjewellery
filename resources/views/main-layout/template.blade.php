@@ -23,6 +23,8 @@
     <link rel="stylesheet" type="text/css" href={{ asset('css/adminlte.min.css') }}>
     <link rel="stylesheet" type="text/css" href={{ asset('css/mainLogin.css') }}>
     <link rel="stylesheet" type="text/css" href={{ asset('css/utilLogin.css') }}>
+    <link rel="stylesheet" type="text/css" href={{ asset('css/footer.css') }}>
+
 
   </head>
 
@@ -109,7 +111,7 @@
                   <form action="{{ url('/logout') }}" method="POST" id="logout-form">
                     @csrf
                     <a href="#" onclick="document.getElementById('logout-form').submit()" data-toggle="tooltip" data-placement="top" title="LOGOUT">
-                      <span style="font-size:25px;">LOGOUT</span>
+                      <span style="font-size:25px;">Logout</span>
                     </a>
                   </form>
                 </li>
@@ -131,18 +133,18 @@
         <div class="col-md-12 text-center">
           <h1 class="mb-4 text-bold">Contact Us</h1>
         </div>
-        <div class="row">
-          <div class="col-md-4 mb-lg-0 text-center">
+        <div class="footerWrapper">
+          <div class="  ">
             <a href="https://m.facebook.com/ask.phoenixjewel/?tsid=0.8357089745281052&source=result" target="_blank">
               <img src="{{ asset('assets/Icon/fb.png') }}" alt="">
             </a>
           </div>
-          <div class="col-md-4 mb-lg-0 text-center">
+          <div class="  ">
             <a href="https://www.instagram.com/phoenixjewelleryid/" target="_blank">
               <img src="{{ asset('assets/Icon/IG.png') }}" alt="">
             </a>
           </div>
-          <div class="col-md-4 mb-lg-0 text-center">
+          <div class="  ">
             <a href="https://m.tokopedia.com/phoenixjewellery/home" target="_blank">
               <img src="{{ asset('assets/Icon/tokped1.png') }}" alt="">
             </a>

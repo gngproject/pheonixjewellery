@@ -9,7 +9,7 @@
                 <div class="author-card-cover" style="background-image: url(https://bootdey.com/img/Content/flores-amarillas-wallpaper.jpeg);"></div>
                 <div class="author-card-profile">
                     <div class="author-card-avatar">
-                        <div class="author-card-avatar"><img src="https://adminphoenixjewellery.com/{{ Sentinel::getUser()->photo}}" alt="Daniel Adams"></div>
+                        <div class="author-card-avatar"><img src={{ Sentinel::getUser()->photo}} alt="Daniel Adams"></div>
                     </div>
                     <div class="author-card-details">
                         <h5 class="author-card-name text-lg mt-2">{{ Sentinel::getUser()->name }}</h5>
