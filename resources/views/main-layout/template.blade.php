@@ -88,10 +88,10 @@
             <ul class="site-menu js-clone-nav d-none d-md-block">
               <li class="active"><a href="/">Home</a></li>
               <li class="has-children">
-                <a href="#">Product</a>
+                <a href="#"><span  onclick=product()>Product</span></a>
                 <ul class="dropdown">
                   <li class="has-children">
-                    <a href="#">Product</a>
+                    <a href="#"><span  onclick=product2()>Product</span></a>
                     <ul class="dropdown">
                       <li><a href="{{ url('/Product-All-Man') }}">Man</a></li>
                       <li><a href="{{ url('/Product-All-Woman') }}">Woman</a></li>
@@ -167,9 +167,18 @@
 
   </div>
 
-
   <script src="https://use.fontawesome.com/9504c33a58.js"></script>
   <script src="{{ url('js/jquery-3.3.1.min.js') }}"></script>
+  
+  <script>
+    function product(){
+      $('[data-target="#collapseItem0"]').click()
+    }
+    function product2(){
+      $('[data-target="#collapseItem1"]').click()
+    }
+  </script>
+
   <script src="{{ url('js/owl.carousel.min.js') }}"></script>
   <script src="{{ url('js/jquery-ui.js') }}"></script>
   <script src="{{ url('js/popper.min.js') }}"></script>
