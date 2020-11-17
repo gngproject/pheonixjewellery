@@ -30,8 +30,7 @@
 </section>
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>-->
-{{-- <script type="text/javascript" src="https://sandbox-kit.espay.id/public/signature/js"></script> --}}
-<script type="text/javascript" src="https://kit.espay.id/public/signature/js"></script>
+<script type="text/javascript" src="https://sandbox-kit.espay.id/public/signature/js"></script>
 
 <script type="text/javascript">
 window.onload = function() {
