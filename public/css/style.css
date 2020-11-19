@@ -790,3 +790,11 @@ a {
     margin-left:10rem;
 
 }
+
+.buttonChekcoutWrapper{
+  display: flex;
+  width:100%;
+}
+.buttonChekcoutWrapper button{
+  margin: auto;
+}

@@ -163,8 +163,8 @@
                         </div> --}}
                     @else
                         <div class="row">
-                            <div class="col-md-12">
-                            <button class="btn btn-primary btn-md" onclick="window.location='{{ route('cart.checkout') }}'">Proceed To Checkout</button>
+                            <div class="buttonChekcoutWrapper" >
+                            <button class="btn btn-primary "  onclick="window.location='{{ route('cart.checkout') }}'">Proceed To Checkout</button>
                             </div>
                         </div>
                     </div>
