@@ -17,8 +17,7 @@ class sessionControl
     {
         
         if(!session()->has('sessionKey')){
-            return redirect('/');
-            
+            return redirect("/"); 
         } else {
             return $next($request);
         }

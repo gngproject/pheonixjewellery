@@ -74,10 +74,13 @@ class Inquiry extends Controller
     {
         if(Sentinel::check()){
             // $transaction = Orders::where('status','new')->get();
-            $transaction = Orders::orderBy('id','DESC')->first();
+            $sessionKey = session()->get("sessionKey");
+            $transaction = Orders::where("user_id","=",$sessionKey)-> orderBy('id','DESC')->first();
         }
+
+        
         // return view('Payment.paymenttransaction',compact('transaction
-        return view('Payment.paymenttransaction',['transaction' => $transaction]);
+        // return view('Payment.paymenttransaction',['transaction' => $transaction]);
         // dd($transaction);
     }
 

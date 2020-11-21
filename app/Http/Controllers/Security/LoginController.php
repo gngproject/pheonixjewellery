@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Security;
 
 use Mail;
+use App\Mail\resetPasswordEmail;
 use App\User;
 use Sentinel;
 use Reminder;
@@ -39,7 +40,7 @@ class LoginController extends Controller
             'password'  => 'required'
         ], $errorMsgs);
 
-        $getData = User::select("email")
+        $getData = User::select("email","id")
             ->where('email','=', $request->get("email"))
             ->first();
         
@@ -53,7 +54,7 @@ class LoginController extends Controller
             // return response()->json($returnData, 500);
             return redirect()->back()->with(['error'=>$validator->errors()->all()]);
         }
-        $request->session()->put('sessionKey',$getData->email);
+        $request->session()->put('sessionKey',$getData->id);
 
         
         if($request->remember == 'on'){
@@ -134,23 +135,25 @@ class LoginController extends Controller
             return redirect()->back()->with(['error' => 'Email tidak ada']);
         }
 
-        $user       = Sentinel::findById($user->id);
-        $reminder   = Reminder::exists($user) ? : Reminder::create($user);
+        // $user       = Sentinel::findById($user->id);
+        // $reminder   = Reminder::exists($user) ? : Reminder::create($user);
         // dd($reminder);
-        $this->sendEmail($user, $reminder->code);
+        $this->sendEmail($user);
         return redirect()->back()->with(['success' => 'Reset Password kirim ke email anda']);
     }
 
-    public function sendEmail($user, $code)
+    public function sendEmail($user)
     {
-        Mail::send(
-            'email.forgot',
-            ['user' => $user, 'code' => $code],
-            function($message) use ($user){
-                $message->to($user->email);
-                $message->subject("$user->name, reset your password.");
-            }
-        );
+        // Mail::send(
+        //     'email.forgot',
+        //     ['user' => $user, 'code' => $code],
+        //     function($message) use ($user){
+        //         $message->to("hafiz.210398@gmail.com");
+        //         $message->subject("$user->name, reset your password.");
+        //     }
+        // );
+
+        Mail::to($user->email)->send(new resetPasswordEmail($user->email));
     }
 
     public function reset($email, $code)
